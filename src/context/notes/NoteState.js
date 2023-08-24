@@ -2,18 +2,85 @@ import React, { useState } from "react";
 import noteContext from "./noteContext";
 
 const NoteState = (props) => {
-  const s1 = {
-    name: "Shan",
-    class: "10A",
-  };
-  const [state, setState] = useState(s1);
-  const update = () => {
-    setTimeout(() => {
-      setState({ name: "Vijay", class: "6B" });
-    }, 2000);
-  };
+  const notesInitial = [
+    {
+      _id: "64e4d0e74705e885a4b4deef",
+      user: "64e45d107c03845d981569f1",
+      title: "MERN App",
+      description: "This is a MERN App backend",
+      tag: "Web Development",
+      date: "2023-08-22T15:14:47.243Z",
+      __v: 0,
+    },
+    {
+      _id: "64e4db2420c94cd7107bcd86",
+      user: "64e45d107c03845d981569f1",
+      title: "New note",
+      description: "This is a backend note",
+      tag: "Express Node",
+      date: "2023-08-22T15:58:28.505Z",
+      __v: 0,
+    },
+    {
+      _id: "64e5aaa59af6aaa17d9fd755",
+      user: "64e45d107c03845d981569f1",
+      title: "New note1",
+      description: "This is a backend note1",
+      tag: "Express Node",
+      date: "2023-08-23T06:43:49.669Z",
+      __v: 0,
+    },
+    {
+      _id: "64e5aaa59af6aaa17d9fd755",
+      user: "64e45d107c03845d981569f1",
+      title: "New note1",
+      description: "This is a backend note1",
+      tag: "Express Node",
+      date: "2023-08-23T06:43:49.669Z",
+      __v: 0,
+    },
+    {
+      _id: "64e5aaa59af6aaa17d9fd755",
+      user: "64e45d107c03845d981569f1",
+      title: "New note1",
+      description: "This is a backend note1",
+      tag: "Express Node",
+      date: "2023-08-23T06:43:49.669Z",
+      __v: 0,
+    },
+    {
+      _id: "64e5aaa59af6aaa17d9fd755",
+      user: "64e45d107c03845d981569f1",
+      title: "New note1",
+      description: "This is a backend note1",
+      tag: "Express Node",
+      date: "2023-08-23T06:43:49.669Z",
+      __v: 0,
+    },
+    {
+      _id: "64e5aaa59af6aaa17d9fd755",
+      user: "64e45d107c03845d981569f1",
+      title: "New note1",
+      description: "This is a backend note1",
+      tag: "Express Node",
+      date: "2023-08-23T06:43:49.669Z",
+      __v: 0,
+    },
+    {
+      _id: "64e5aaa59af6aaa17d9fd755",
+      user: "64e45d107c03845d981569f1",
+      title: "New note1",
+      description: "This is a backend note1",
+      tag: "Express Node",
+      date: "2023-08-23T06:43:49.669Z",
+      __v: 0,
+    },
+  ];
+
+  const [notes, setNotes] = useState(notesInitial);
+
   return (
-    <noteContext.Provider value={{ state, update }}>
+    <noteContext.Provider value={{ notes, setNotes }}>
       {props.children}
     </noteContext.Provider>
   );
