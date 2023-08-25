@@ -23,7 +23,6 @@ const NoteState = (props) => {
 
   //Add a Note
   const addNote = async (title, description, tag) => {
-    // TODO API call
     // API call
     const response = await fetch(`${host}/api/notes/addnote`, {
       method: "POST",
@@ -34,6 +33,9 @@ const NoteState = (props) => {
       },
       body: JSON.stringify({ title, description, tag }),
     });
+
+    const json = await response.json();
+    console.log(json);
 
     const note = {
       _id: "64e5aaa59af6aaa17d9fd757",
@@ -59,7 +61,9 @@ const NoteState = (props) => {
       },
     });
 
-    console.log(`Deleting note with id ${id}`);
+    const json = await response.json();
+    console.log(json);
+
     const newNotes = notes.filter((note) => {
       return note._id !== id;
     });
@@ -79,15 +83,21 @@ const NoteState = (props) => {
       body: JSON.stringify({ title, description, tag }),
     });
 
+    const json = await response.json();
+    console.log(json);
+
     // Logic to edit in client
+    let newNotes = JSON.parse(JSON.stringify(notes));
     for (let index = 0; index < notes.length; index++) {
-      const element = notes[index];
+      const element = newNotes[index];
       if (element._id === id) {
         element.title = title;
         element.description = description;
         element.tag = tag;
+        break;
       }
     }
+    setNotes(newNotes);
   };
 
   return (
