@@ -1,12 +1,22 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  let navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/login");
+  };
+
   let location = useLocation();
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <nav
+        className="navbar navbar-expand-lg bg-body-tertiary"
+        data-bs-theme="light"
+      >
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
             iNotebook
@@ -45,13 +55,32 @@ const Navbar = () => {
                 </Link>
               </li>
             </ul>
-
-            <Link className="btn btn-primary mx-1" to="/login" role="button">
-              Login
-            </Link>
-            <Link className="btn btn-primary mx-1" to="/signup" role="button">
-              Signup
-            </Link>
+            {!localStorage.getItem("token") ? (
+              <form className="d-flex">
+                <Link
+                  className={`btn btn-${
+                    location.pathname === "/login" ? "dark" : "outline-dark"
+                  } mx-1`}
+                  to="/login"
+                  role="button"
+                >
+                  Login
+                </Link>
+                <Link
+                  className={`btn btn-${
+                    location.pathname === "/signup" ? "dark" : "outline-dark"
+                  } mx-1`}
+                  to="/signup"
+                  role="button"
+                >
+                  Signup
+                </Link>
+              </form>
+            ) : (
+              <button onClick={handleLogout} className="btn btn-outline-dark">
+                Logout
+              </button>
+            )}
           </div>
         </div>
       </nav>

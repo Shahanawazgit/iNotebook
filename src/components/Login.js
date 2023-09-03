@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = (props) => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
@@ -23,8 +23,8 @@ const Login = (props) => {
     if (json.success) {
       // Save the auth token and redirect
       localStorage.setItem("token", json.authToken);
+      props.showAlert("Logged in Successfully!", "success");
       navigate("/");
-      props.showAlert("Logged In Successfully!", "success");
     } else {
       props.showAlert("Invalid Credentials", "danger");
     }
@@ -37,6 +37,7 @@ const Login = (props) => {
   return (
     <div className="container my-2">
       <form onSubmit={handleSubmit}>
+        <h2>Login to Your Account</h2>
         <div className="mb-3">
           <label htmlFor="email" className="form-label">
             Email address
@@ -62,9 +63,12 @@ const Login = (props) => {
             onChange={onChange}
           />
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-outline-dark">
           Login
         </button>
+        <p className="mt-2">
+          Don't have an Account? <Link to="/signup">Signup Now</Link>
+        </p>
       </form>
     </div>
   );
