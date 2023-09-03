@@ -1,3 +1,9 @@
 body {
   background: url("../src/assets/bg.jpg");
 }
+
+h2 {
+  color: #000;
+  font-weight: bold;
+  font-size: 2.5rem;
+}

@@ -34,6 +34,8 @@ const Login = (props) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
 
+  const mobile = window.innerWidth <= 768 ? true : false;
+
   return (
     <div className="container my-2">
       <form onSubmit={handleSubmit}>
@@ -50,6 +52,7 @@ const Login = (props) => {
             aria-describedby="emailHelp"
             onChange={onChange}
             autoComplete="off"
+            style={{ width: mobile ? "100%" : "50%" }}
           />
         </div>
         <div className="mb-3">
@@ -63,6 +66,7 @@ const Login = (props) => {
             name="password"
             onChange={onChange}
             autoComplete="off"
+            style={{ width: mobile ? "100%" : "50%" }}
           />
         </div>
         <button type="submit" className="btn btn-success">

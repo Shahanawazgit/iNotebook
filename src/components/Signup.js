@@ -41,6 +41,8 @@ const Signup = (props) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
 
+  const mobile = window.innerWidth <= 768 ? true : false;
+
   return (
     <div className="container my-2">
       <form onSubmit={handleSubmit}>
@@ -56,6 +58,7 @@ const Signup = (props) => {
             name="name"
             onChange={onChange}
             autoComplete="off"
+            style={{ width: mobile ? "100%" : "50%" }}
           />
         </div>
         <div className="mb-3">
@@ -70,6 +73,7 @@ const Signup = (props) => {
             aria-describedby="emailHelp"
             onChange={onChange}
             autoComplete="off"
+            style={{ width: mobile ? "100%" : "50%" }}
           />
           <div id="emailHelp" className="form-text">
             We'll never share your email with anyone else.
@@ -88,6 +92,7 @@ const Signup = (props) => {
             minLength={5}
             required
             autoComplete="off"
+            style={{ width: mobile ? "100%" : "50%" }}
           />
         </div>
         <div className="mb-3">
@@ -103,6 +108,7 @@ const Signup = (props) => {
             minLength={5}
             required
             autoComplete="off"
+            style={{ width: mobile ? "100%" : "50%" }}
           />
         </div>
 

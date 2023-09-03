@@ -26,6 +26,8 @@ const AddNote = (props) => {
     setNote({ ...note, [e.target.name]: e.target.value });
   };
 
+  const mobile = window.innerWidth <= 768 ? true : false;
+
   return (
     <div className="container my-2">
       <h2>Add a Note</h2>
@@ -45,6 +47,7 @@ const AddNote = (props) => {
             minLength={5}
             required
             value={note.title}
+            style={{ width: mobile ? "100%" : "50%" }}
           />
         </div>
         <div className="mb-3">
@@ -61,6 +64,7 @@ const AddNote = (props) => {
             minLength={5}
             required
             value={note.description}
+            style={{ width: mobile ? "100%" : "50%" }}
           />
         </div>
         <div className="mb-3">
@@ -74,6 +78,7 @@ const AddNote = (props) => {
             name="tag"
             onChange={onChange}
             value={note.tag}
+            style={{ width: mobile ? "100%" : "50%" }}
           />
         </div>
         <button
