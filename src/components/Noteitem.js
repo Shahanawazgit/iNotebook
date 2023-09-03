@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import noteContext from "../context/notes/noteContext";
+import noteImg from "../assets/noteImg.jpg";
 
 const NoteItem = (props) => {
   const context = useContext(noteContext);
@@ -7,26 +8,31 @@ const NoteItem = (props) => {
   const { note, updateNote, showAlert } = props;
 
   return (
-    <div className="col-md-3">
+    <div className="col-md-4">
       <div className="card my-2">
+        <img src={noteImg} className="card-img-top" alt="Note img" />
         <div className="card-body">
-          <div className="d-flex align-items-center">
-            <h5 className="card-title">{note.title}</h5>
-            <i
-              className="fa-solid fa-trash-can mx-2"
+          <h5 className="card-title">{note.title}</h5>
+          <p className="card-text">{note.description}</p>
+          <div className="d-flex justify-content-center">
+            <button
+              className="btn btn-danger mx-1"
               onClick={() => {
                 deleteNote(note._id);
                 showAlert("Note Deleted Successfully", "success");
               }}
-            ></i>
-            <i
-              className="fa-solid fa-pen-to-square mx-2"
+            >
+              Delete <i className="fa-solid fa-trash-can mx-2" />
+            </button>
+            <button
+              className="btn btn-warning mx-1"
               onClick={() => {
                 updateNote(note);
               }}
-            ></i>
+            >
+              Edit <i className="fa-solid fa-pen-to-square mx-2" />
+            </button>
           </div>
-          <p className="card-text">{note.description}</p>
         </div>
       </div>
     </div>

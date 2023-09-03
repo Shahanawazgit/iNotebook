@@ -146,7 +146,7 @@ const Notes = (props) => {
                 </button>
                 <button
                   type="button"
-                  className="btn btn-outline-dark"
+                  className="btn btn-success"
                   onClick={handleUpdateClick}
                   disabled={
                     note.etitle.length < 5 || note.edescription.length < 5

@@ -55,6 +55,7 @@ const Signup = (props) => {
             id="name"
             name="name"
             onChange={onChange}
+            autoComplete="off"
           />
         </div>
         <div className="mb-3">
@@ -68,6 +69,7 @@ const Signup = (props) => {
             name="email"
             aria-describedby="emailHelp"
             onChange={onChange}
+            autoComplete="off"
           />
           <div id="emailHelp" className="form-text">
             We'll never share your email with anyone else.
@@ -85,6 +87,7 @@ const Signup = (props) => {
             onChange={onChange}
             minLength={5}
             required
+            autoComplete="off"
           />
         </div>
         <div className="mb-3">
@@ -99,10 +102,11 @@ const Signup = (props) => {
             onChange={onChange}
             minLength={5}
             required
+            autoComplete="off"
           />
         </div>
 
-        <button type="submit" className="btn btn-outline-dark">
+        <button type="submit" className="btn btn-dark">
           SignUp
         </button>
       </form>

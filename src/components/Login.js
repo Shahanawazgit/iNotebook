@@ -49,6 +49,7 @@ const Login = (props) => {
             name="email"
             aria-describedby="emailHelp"
             onChange={onChange}
+            autoComplete="off"
           />
         </div>
         <div className="mb-3">
@@ -61,13 +62,17 @@ const Login = (props) => {
             id="password"
             name="password"
             onChange={onChange}
+            autoComplete="off"
           />
         </div>
-        <button type="submit" className="btn btn-outline-dark">
+        <button type="submit" className="btn btn-success">
           Login
         </button>
         <p className="mt-2">
-          Don't have an Account? <Link to="/signup">Signup Now</Link>
+          Don't have an Account?{" "}
+          <Link to="/signup">
+            <button className="btn btn-primary">Signup Now</button>
+          </Link>
         </p>
       </form>
     </div>
