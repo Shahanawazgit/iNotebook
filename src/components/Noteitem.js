@@ -12,7 +12,7 @@ const NoteItem = (props) => {
       <div className="card my-2">
         <img src={noteImg} className="card-img-top" alt="Note img" />
         <div className="card-body">
-          <h5 className="card-title">{note.title}</h5>
+          <h5 className="card-title fw-bold">{note.title}</h5>
           <p className="card-text">{note.description}</p>
           <div className="d-flex justify-content-center">
             <button
