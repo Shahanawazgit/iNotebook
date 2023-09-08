@@ -4,15 +4,9 @@ var cors = require("cors");
 connectToMongo();
 
 const app = express();
-const port = "https://i-notebook-backend-one.vercel.app";
+const port = 5000;
 
-app.use(
-  cors({
-    origin: ["https://i-notebook-ruddy.vercel.app"],
-    methods: ["POST", "GET", "PUT", "DELETE"],
-    credentials: true,
-  })
-);
+app.use(cors());
 app.use(express.json());
 
 // Available Routes
