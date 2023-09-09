@@ -162,7 +162,7 @@ const Notes = (props) => {
 
       <div className="row my-3">
         <h2>Your Notes</h2>
-        <div className="container mx-2">
+        <div className="container mx-2" style={{ color: "#ff1112" }}>
           {notes.length === 0 && "No Notes to display, Please add a Note!"}
         </div>
         {notes.map((note) => {
