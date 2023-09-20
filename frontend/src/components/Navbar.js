@@ -38,8 +38,8 @@ const Navbar = () => {
             </ul>
             {!localStorage.getItem("token") ? (
               <form className="d-flex">
-                <Link className="btn btn-dark mx-1" to="/login" role="button">
-                  Login
+                <Link className="btn btn-dark mx-1" to={location.pathname === "/login" ? "/signup" : "/login"} role="button">
+                  {location.pathname === "/login" ? "Signup" : "Login"}
                 </Link>
               </form>
             ) : (
