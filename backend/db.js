@@ -1,9 +1,16 @@
+const dotenv = require("dotenv");
 const mongoose = require("mongoose");
-const mongoURI = "mongodb://127.0.0.1:27017/inotebook";
+
+dotenv.config().parsed;
 
 const connectToMongo = async () => {
-  await mongoose.connect(mongoURI);
-  console.log("Connected to Mongo");
+  try {
+    await mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+
+    console.log("MongoDB connected");
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 module.exports = connectToMongo;

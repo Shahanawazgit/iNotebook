@@ -80,13 +80,7 @@ const NoteState = (props) => {
     setNotes(newNotes);
   };
 
-  return (
-    <noteContext.Provider
-      value={{ notes, addNote, deleteNote, editNote, getNotes }}
-    >
-      {props.children}
-    </noteContext.Provider>
-  );
+  return <noteContext.Provider value={{ notes, addNote, deleteNote, editNote, getNotes }}>{props.children}</noteContext.Provider>;
 };
 
 export default NoteState;
